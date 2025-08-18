@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surveillance du Gaz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Surveillance du Gaz</h1>
+  </header>
+  <main>
+    <section class="dashboard">
+      <div class="card">
+        <h2>Niveau de Gaz</h2>
+        <p id="ppm"></p>
+      </div>
+      <div class="card">
+        <h2>Message</h2>
+        <p id="message"></p>
+      </div>
+      <div class="card">
+        <h2>Température actuelle</h2>
+        <p id="current-temp"></p>
+      </div>
+      <div class="card">
+        <h3>Quantité restante</h3>
+        <p id="QantRest"></p>
+      </div>
+    </section>
+    <section class="input-section">
+      <label for="temperature">Entrer la température de cuisson:</label>
+      <input type="number" id="temperature" name="temperature" min="20" max="200">
+      <button id="sendTemperature">Envoyer</button>
+    </section>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
