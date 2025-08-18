@@ -1,0 +1,69 @@
+Projet : INTEGRATION DE L'IoT POUR LE CONTROLE DES CUISINIERES A GAZ
+
+📖 Présentation
+
+Ce projet est une cuisinière à gaz intelligente qui combine capteurs, actionneurs, simulation et IoT pour assurer la sécurité et le contrôle d’un réchaud à gaz. Il a été développé à la fois en simulation avec Proteus et en réalisation pratique avec ESP32.
+Le système permet de :
+      1. Détecter les fuites de gaz.
+      2. Mesurer et réguler la température de cuisson.
+      3. Surveiller la quantité de gaz restante.
+      4. Contrôler une vanne proportionnelle pour gérer le débit de gaz.
+      5. Visualiser et contrôler la cuisinière via une interface web embarquée.
+
+Structure du projet
+
+1. CuisiniereMain/ (Réalisation pratique sur ESP32)
+      - CapteurGaz.* → Gestion du capteur de gaz (détection de fuite).
+      - CapteurTemperature.* → Lecture et traitement du capteur de température.
+      - CompteurQuantGaz.* → Mesure du niveau/pression de gaz.
+      - VanneProportionnelle.* → Contrôle d’une électrovanne proportionnelle.
+      - CuisiniereMain.ino → Fichier principal qui orchestre la logique du système.
+      - data/ → Interface web embarquée (HTML, CSS, JS) permettant de :
+            - Afficher les mesures en temps réel (gaz, température, pression).
+            - Régler la température désirée.
+            - Recevoir des alertes en cas de danger (fuite, feu, etc.).
+            - .vscode/arduino.json → Configuration pour l’IDE VS Code avec Arduino.
+
+2. Simulation/ (Simulation sous Proteus)
+      - Cuisinière de gaz.pdsprj → Projet Proteus (schéma et simulation du montage).
+      - Cuisinière de gaz.HGL → Fichier associé au schéma.
+      - Code/ArduinoCuisiniere/ → Code Arduino pour la simulation avec Proteus.
+      - Project Backups/ → Sauvegardes automatiques du projet Proteus.
+
+⚙️ Fonctionnalités principales
+
+  1. Détection des gaz
+Le module CapteurGaz lit les données du capteur (type MQ2 ou similaire) et déclenche une alarme si une fuite de gaz est détectée.
+
+  2. Régulation de température
+Le module CapteurTemperature mesure la température de la cuisinière. Le système compare cette valeur avec la température de consigne donnée par l’utilisateur et ajuste automatiquement la vanne proportionnelle pour réguler la flamme.
+
+  3. Suivi de la quantité de gaz
+Le module CompteurQuantGaz utilise un manomètre numérique (ou capteur de pression) pour estimer la quantité de gaz restante et prévenir l’utilisateur lorsque le niveau est bas.
+
+  4. Contrôle de la vanne
+Le module VanneProportionnelle reçoit des commandes PWM du microcontrôleur et ajuste le débit de gaz pour :
+
+  5. Atteindre la température désirée.
+  6. Réduire le débit en cas de danger.
+  7. Couper totalement le gaz en urgence.
+
+🌐 Interface Web IoT
+Grâce au dossier data/, l’ESP32 héberge une page web locale accessible depuis un navigateur. Elle permet :
+  - De visualiser en temps réel la température, le gaz détecté et le niveau de gaz.
+  - De définir la température de cuisson.
+  - De recevoir des alertes visuelles.
+  - Intégration avec Firebase (base de données cloud) pour suivi à distance.
+
+🖥️ Simulation Proteus
+La partie simulation permet de tester le comportement du système sans matériel physique. Elle inclut :
+  - Les capteurs simulés (gaz, température, pression).
+  - L’électrovanne de contrôle du gaz.
+  - Le code Arduino adapté pour fonctionner dans Proteus.
+
+Auteurs
+Projet développé par Rodrigue GASORE, Romeo RUBUGA et Juliette BINTI-MASTO
+
+📜 Licence
+Ce projet est open-source et peut être utilisé à des fins académiques, éducatives ou personnelles.
+
