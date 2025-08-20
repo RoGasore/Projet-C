@@ -1,46 +1,40 @@
-  # Expert Advisor ForexLife : Le trading intelligent et personnalisable
+Expert Advisor ForexLife : Le trading intelligent et personnalisable
+Découvrez RG_EA, un Expert Advisor (EA) surpuissant pour MetaTrader 5 (MT5). Cet EA combine la puissance de plusieurs indicateurs pour automatiser votre trading. Son atout majeur ? Une architecture modulaire qui vous permet d'adapter et de remplacer les indicateurs selon votre propre stratégie !
 
-Découvrez **ForexLife**, un Expert Advisor (EA) surpuissant pour MetaTrader 5 (MT5). Cet EA combine la puissance de plusieurs indicateurs pour automatiser votre trading. Son atout majeur ? Une architecture modulaire qui vous permet d'adapter et de remplacer les indicateurs selon votre propre stratégie !
+Pourquoi choisir ForexLife ?
+  - Entièrement Personnalisable : Le code est modulaire. Vous pouvez facilement modifier ou remplacer les indicateurs existants par vos propres favoris.
+  - Prise de Décision Intelligente : L'EA ne se fie pas à un seul signal. Il exige un consensus de plusieurs modules pour valider une entrée en position, réduisant ainsi les faux signaux.
+  - Gestion des Risques Automatisée : Il gère le Take Profit (TP) et le Stop Loss (SL) pour vous, protégeant votre capital.
 
-## Pourquoi choisir ForexLife ?
+Comment ça marche ? Le système des buzzers
+    L'EA fonctionne sur le principe des "buzzers", c'est-à-dire les signaux générés par les indicateurs. Chaque module lit son indicateur spécifique et envoie son "buzzer" (un signal `BUY` ou `SELL`) au module de décision.
+      - Le Filtre TK Boss : Un filtre de tendance.
+      - ForexLife : Un confirmateur de tendance.
+      - L'Oscillator : Un détecteur de momentum.
+      - Les Arrows : Le déclencheur principal.
 
-* **Entièrement Personnalisable** : Le code est modulaire. Vous pouvez facilement modifier ou remplacer les indicateurs existants par vos propres favoris.
-* **Prise de Décision Intelligente** : L'EA ne se fie pas à un seul signal. Il exige un consensus de plusieurs modules pour valider une entrée en position, réduisant ainsi les faux signaux.
-* **Gestion des Risques Automatisée** : Il gère le Take Profit (TP) et le Stop Loss (SL) pour vous, protégeant votre capital.
+La magie opère dans le code : Si vous voulez utiliser d'autres indicateurs, il suffit de modifier le code de chaque module pour qu'il lise les buffers (ou tampons de données) de l'indicateur que vous avez choisi. Ces buffers sont accessibles via la table de données de l'indicateur (que vous pouvez voir en appuyant sur `Ctrl+D` sur MetaTrader).
 
----
-
-##  Comment ça marche ? Le système des buzzers
-
-L'EA fonctionne sur le principe des "buzzers", c'est-à-dire les signaux générés par les indicateurs. Chaque module lit son indicateur spécifique et envoie son "buzzer" (un signal `BUY` ou `SELL`) au module de décision.
-
-* **Le Filtre TK Boss** : Un filtre de tendance.
-* **ForexLife** : Un confirmateur de tendance.
-* **L'Oscillator** : Un détecteur de momentum.
-* **Les Arrows** : Le déclencheur principal.
-
-**La magie opère dans le code :** Si vous voulez utiliser d'autres indicateurs, il suffit de modifier le code de chaque module pour qu'il lise les **buffers (ou tampons de données)** de l'indicateur que vous avez choisi. Ces buffers sont accessibles via la table de données de l'indicateur (que vous pouvez voir en appuyant sur `Ctrl+D` sur MetaTrader).
-
----
-
-##  Mise en route rapide
-
+# Mise en route rapide
 Pour ceux qui veulent commencer tout de suite sans modifier le code :
+  1.  Téléchargez le fichier `Version 1.3_final.ex5`.
+  2.  Allez dans `Fichier` -> `Ouvrir le dossier de données` de votre MT5.
+  3.  Placez le fichier `.ex5` dans `MQL5` -> `Experts`.
+  4.  Relancez MT5. L'EA sera disponible dans le `Mapsur` sous `Experts`.
+  5.  Faites-le glisser sur un graphique et configurez les paramètres.
 
-1.  Téléchargez le fichier **`ForexLife_v1_3_final.ex5`**.
-2.  Allez dans `Fichier` -> `Ouvrir le dossier de données` de votre MT5.
-3.  Placez le fichier `.ex5` dans `MQL5` -> `Experts`.
-4.  Relancez MT5. L'EA sera disponible dans le `Mapsur` sous `Experts`.
-5.  Faites-le glisser sur un graphique et configurez les paramètres.
+# Paramètres Essentiels
+  `TP_Points` : Votre Take Profit en points.
+  `SL_Points` : Votre Stop Loss en points.
+  `LotSize` : La taille du lot.
+  `MinSignauxAlignes` : Le nombre de modules qui doivent être d'accord pour ouvrir un trade.
+  `enableDebugMode` : Activez-le pour voir les logs dans l'onglet Experts et comprendre la logique de l'EA.
 
----
+Avertissement :
+N'utilisez jamais cet EA avec de l'argent réel sans l'avoir d'abord testé de manière approfondie sur un compte de démo.
 
-##  Paramètres Essentiels
+Licence
+Open source
 
-* `TP_Points` : Votre Take Profit en points.
-* `SL_Points` : Votre Stop Loss en points.
-* `LotSize` : La taille du lot.
-* `MinSignauxAlignes` : Le nombre de modules qui doivent être d'accord pour ouvrir un trade.
-* `enableDebugMode` : Activez-le pour voir les logs dans l'onglet `Experts` et comprendre la logique de l'EA.
-
-> ** Avertissement :** N'utilisez jamais cet EA avec de l'argent réel sans l'avoir d'abord testé de manière approfondie sur un compte de démo.
+Auteur
+Rodrigue GASORE
