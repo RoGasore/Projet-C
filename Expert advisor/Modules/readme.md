@@ -16,8 +16,9 @@
 # Le Module `Decision.mqh : Le Cerveau
 
 Ce module est le véritable moteur de décision du système. Il reçoit les signaux de tous les autres modules et les analyse pour déterminer si une opportunité de trading existe.
-    - Alignement des signaux : `Decision.mqh` attend que les signaux de tous les modules concordent. Il ne prendra une position que si un nombre minimum de modules (configuré par `MinSignauxAlignes`) sont alignés dans la même direction (par exemple, tous les trois modules indiquent `BUY`).
 
-    - Gestion des risques** : Une fois qu'une position est ouverte, le module gère la prise de profit (TP) et le stop loss (SL) selon les paramètres que tu as définis (`TP_Points` et `SL_Points`). Il crée même des rectangles visuels sur le graphique pour te montrer les zones de risque et de gain.
+    - Alignement des signaux : Decision.mqh attend que les signaux de tous les modules concordent. Il ne prendra une position que si un nombre minimum de modules (configuré par `MinSignauxAlignes`) sont alignés dans la même direction (par exemple, tous les trois modules indiquent `BUY`).
+
+    - Gestion des risques : Une fois qu'une position est ouverte, le module gère la prise de profit (TP) et le stop loss (SL) selon les paramètres que tu as définis (`TP_Points` et `SL_Points`). Il crée même des rectangles visuels sur le graphique pour te montrer les zones de risque et de gain.
 
     - Logique de blocage : Pour éviter les sur-trades et les faux signaux, ce module implémente une logique de blocage. Une fois qu'il a ouvert une position (par exemple un achat), il bloque toute nouvelle position dans la même direction jusqu'à ce qu'un signal contraire (une flèche de vente) soit détecté, réinitialisant ainsi le cycle de trading.
